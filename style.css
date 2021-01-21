@@ -1,0 +1,28 @@
+/* body{
+    padding: 0;
+    margin: 0;
+} */
+
+.conteiner {
+  padding: 0px 20px 0px 20px;
+  display: flex;
+}
+
+.img {
+  min-width: 50%;
+  background-color: #fdfc34;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+padding: 20px;
+  background-color: #45d3e7;
+  background: linear-gradient(to right, #34fdfd, #fd3481);
+  min-width: 50%;
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
