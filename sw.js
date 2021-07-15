@@ -1,28 +1,40 @@
-// if (navigator.serviceWorker) {
 
-//     //Register the SW
-//     navigator.serviceWorker.register('sw.js').then(function(registration){
+const staticCacheName = 's-app-v'
+const assetUrls = [
+    'index.html',
+    '/js/app.js',
+    '/css/style.css',
+    '/img'
+]
 
-//         registration.onupdatefound = () => {
-//             console.log("New SW Found");
-//             console.log(registration.installing)
-//             let newSW = registration.installing
+// self.addEventListener('install', event => {
+//     event.waitUntil(
+//         caches.open(staticCacheName).then(cache => cache.addAll(assetUrls))
+//     )
+//     console.log('SW installed')
+// })
+self.addEventListener('install', async event => {
+    const cache = await caches.open(staticCacheName)
+    await cache.addAll(assetUrls)
+    console.log('SW installed')
+})
 
-//             newSW.onstatechange = () => {
-//                 console.log(newSW.state)
-//             }
-//         };
+self.addEventListener('activate', async event => {
+    const cacheNames = await caches.keys()
+    await Promise.all(
+        cacheNames
+            .filter(name => name !== staticCacheName)
+            .map(name => caches.delete(name))
+    )
+    console.log('SW activated')
+})
 
-//     }).catch(console.log)
-// }
+self.addEventListener('fetch', event => {
+    event.respondWith(cacheFirst(event.request))
+    console.log('Fetch events: ', event.request.url)
+})
 
-
-// if ('serviceWorker' in navigator){
-// // if (navigator.serviceWorker){
-//     navigator.serviceWorker
-//   .register('sw.js')
-//   .then((registration) => {
-//     // some code
-//     console.log('registered')
-//   });
-// }
+async function cacheFirst(request){
+    const cached = await caches.match(request)
+    return cached ?? await fetch(request)
+}
