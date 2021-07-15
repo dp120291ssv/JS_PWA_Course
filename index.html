@@ -5,21 +5,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>First PWA</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/favicon.svg" type="image/png" sizes="32x32" />
+
 </head>
 
 <body>
     <div class="conteiner">
-        <div class="img">
-            <img src="/img/phone.png" alt="">
+        <div class="left">
+            <div class="left-header">
+                <img src="/img/logo.png" alt="" class="left-logo">
+            </div>
+            <div class="left-content">
+                <div class="left-phone">
+                    <img src="img/phone.png" alt="" class="left-phone img">
+                </div>
+                <div class="left-description">
+                    <img src="img/features.png" alt="" class="left-description img">
+                </div>
+            </div>
         </div>
-        <div class="content">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores laboriosam error impedit quasi non,
-            nostrum
-            aperiam porro a minus consectetur provident soluta alias similique ad totam dolorem in repudiandae nemo!
+        <div class="right">
+            <div class="right-text-a">
+                Progressive Web App (PWA) is a term used to denote a new software development methodology. Unlike
+                traditional applications, progressive web apps are a hybrid of regular web pages (or websites) and a
+                mobile application.
+            </div>
+            <div class="right-text-b">
+                PWAs utilize the power of web tools like service workers and IndexedDB to provide users with a better
+                web experience or sometimes, an offline first experience.
+            </div>
+            <div class="right-text-c">
+                Progressive Web Apps are web applications that have been designed so they are capable, reliable, and
+                installable. These three pillars transform them into an experience that feels like a platform-specific
+                application.
+            </div>
+            <div class="right-text-d">
+                Between modern APIs, Web Assembly, and new and upcoming APIs, web applications are more capable than
+                ever, and those capabilities are only growing.
+            </div>
+            <div class="right-text-e">
+                Users love apps that respond to interaction in the blink of an eye, and an experience they can depend
+                on.
+            </div>
+            <div class="right-text-f">
+                When a Progressive Web App moves out of a tab and into a standalone app window, it transforms how users
+                think about it and interact with it.
+            </div>
         </div>
     </div>
-    <script src="/script.js"></script>
+    <script src="./sw.js"></script>
+    <script src="./js/app.js"></script>
 </body>
 
 </html>
